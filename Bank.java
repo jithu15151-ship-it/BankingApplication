@@ -1,8 +1,8 @@
 
 public class Bank extends Account{
 
-    Bank(int pin, long accountNumber, String name){
-        super(pin,accountNumber,name);
+    Bank(int pin,String phoneNumber, String name){
+        super(pin,phoneNumber,name);
     }
     public final void display(){
     }
