@@ -36,8 +36,19 @@ public class MyFrame extends JFrame{
         //submit 
         add(submit);
         submit.setBounds(175, 200, 80, 25);
+        submit.addActionListener(e->{
+        String name1 = tName.getText();
+        String phno = PhoneNumber.getText();
+                System.out.println(name1+"  "+phno);    
+        });
         //clear
         add(clear);
+         clear.addActionListener(e->{
+            
+               tName.setText(null);
+               PhoneNumber.setText(null);  
+               TPin.setText(null);     
+        });
         clear.setBounds(280, 200, 70, 25);
         //window operations
         setLayout(null);
