@@ -11,8 +11,8 @@ public class MyFrame extends JFrame{
          final JTextField tName = new JTextField();
          final JTextField PhoneNumber = new JTextField();
          final JTextField TPin = new JTextField();
-         final JCheckBox submit = new JCheckBox("Submit");
-        final JCheckBox clear = new JCheckBox("Clear");
+         final JButton submit = new JButton("Submit");
+        final JButton clear = new JButton("Clear");
         //headings........
         add(h1);
         add(h2);
@@ -35,7 +35,7 @@ public class MyFrame extends JFrame{
         TPin.setBounds(170, 150, 200, 30);
         //submit 
         add(submit);
-        submit.setBounds(185, 200, 70, 25);
+        submit.setBounds(175, 200, 80, 25);
         //clear
         add(clear);
         clear.setBounds(280, 200, 70, 25);
