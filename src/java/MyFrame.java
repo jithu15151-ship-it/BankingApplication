@@ -1,9 +1,9 @@
-import javax.swing.*;
+import java.sql.DriverManager;
 
+import javax.swing.*;
 public class MyFrame extends JFrame {
     public void display() {
         // object
-
         final JLabel h1 = new JLabel("State bank of India");
         final JLabel h2 = new JLabel("Register here");
         final JLabel name = new JLabel("Name");
@@ -38,14 +38,24 @@ public class MyFrame extends JFrame {
         add(submit);
         submit.setBounds(175, 200, 80, 25);
         submit.addActionListener(e -> {
-            String name1 = tName.getText();
-            String phno = PhoneNumber.getText();
+            AccountDAO ad = new AccountDAO();
+            String name1 = tName.getText().trim();
+            String phno = PhoneNumber.getText().trim();
             String setPin = new String(TPin.getPassword());
             if(name1.isEmpty()||phno.isEmpty()||setPin.isEmpty()){
                 JOptionPane.showMessageDialog(this, "Fill  the all the details !");
                 return ;
             }
-            System.out.println(name1 + "  " + phno);
+            boolean result = ad.registerAccount(name1, phno, setPin);
+            if(result){
+                JOptionPane.showMessageDialog(this, "Registraion Successfull");
+                tName.setText("");
+                PhoneNumber.setText("");
+                TPin.setText("");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Registarion Failed");
+            }
         });
         // clear
         add(clear);
