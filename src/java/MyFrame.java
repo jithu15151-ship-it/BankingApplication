@@ -12,6 +12,8 @@ public class MyFrame extends JFrame {
         final JTextField tName = new JTextField();
         final JTextField PhoneNumber = new JTextField();
         final JPasswordField TPin = new JPasswordField();
+        final JPasswordField reEnterPin = new JPasswordField();
+        final JLabel reEnter = new JLabel("Re-Enter");
         final JButton submit = new JButton("Submit");
         final JButton clear = new JButton("Clear");
         // headings........
@@ -31,19 +33,30 @@ public class MyFrame extends JFrame {
         PhoneNumber.setBounds(170, 110, 200, 30);
         // pin
         TPin.setBounds(170, 150, 200, 30);
+        pin.setBounds(110, 150, 70, 30);
+        reEnter.setBounds(110,190,70,30);
+        reEnterPin.setBounds(170, 190, 200, 30);
         add(pin);
         add(TPin);
-        pin.setBounds(110, 150, 70, 30);
+        add(reEnter);
+        add(reEnterPin);
+
         // submit
         add(submit);
-        submit.setBounds(175, 200, 80, 25);
+        submit.setBounds(175, 240, 80, 25);
         submit.addActionListener(e -> {
             AccountDAO ad = new AccountDAO();
             String name1 = tName.getText().trim();
             String phno = PhoneNumber.getText().trim();
             String setPin = new String(TPin.getPassword());
-            if(name1.isEmpty()||phno.isEmpty()||setPin.isEmpty()){
+            String repin = new String(reEnterPin.getPassword());
+            
+            if(name1.isEmpty()||phno.isEmpty()||setPin.isEmpty()||repin.isEmpty()){
                 JOptionPane.showMessageDialog(this, "Fill  the all the details !");
+                return ;
+            }
+            else if(!setPin.equals(repin)){
+                JOptionPane.showMessageDialog(this,"Re Enter password not match");
                 return ;
             }
             boolean result = ad.registerAccount(name1, phno, setPin);
@@ -65,7 +78,7 @@ public class MyFrame extends JFrame {
             PhoneNumber.setText(null);
             TPin.setText(null);
         });
-        clear.setBounds(280, 200, 70, 25);
+        clear.setBounds(280, 240, 70, 25);
         // window operations
         setLayout(null);
         setSize(600, 500);
