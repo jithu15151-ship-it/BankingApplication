@@ -1,5 +1,3 @@
-import java.sql.DriverManager;
-
 import javax.swing.*;
 public class MyFrame extends JFrame {
     public void display() {
@@ -40,9 +38,10 @@ public class MyFrame extends JFrame {
         add(TPin);
         add(reEnter);
         add(reEnterPin);
-
         // submit
         add(submit);
+        JRootPane rp = this.getRootPane();
+        rp.setDefaultButton(submit);
         submit.setBounds(175, 240, 80, 25);
         submit.addActionListener(e -> {
             AccountDAO ad = new AccountDAO();
