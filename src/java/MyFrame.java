@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 public class MyFrame extends JFrame {
     public void display() {
         // object
@@ -19,16 +20,24 @@ public class MyFrame extends JFrame {
         add(h2);
         h1.setBounds(210, 10, 130, 30);
         h2.setBounds(220, 30, 130, 30);
+        h1.setBackground(Color.BLUE);
+        h2.setBackground(Color.BLUE);
         // Name........
         add(tName);
         name.setBounds(110, 70, 70, 30);
         tName.setBounds(170, 70, 200, 30);
+        name.setBackground(Color.blue);
+        tName.setBackground(Color.WHITE);
+        tName.setForeground(Color.black);
         // phone number......
         add(PhNumber);
         add(PhoneNumber);
         add(name);
         PhNumber.setBounds(110, 110, 70, 30);
         PhoneNumber.setBounds(170, 110, 200, 30);
+        PhNumber.setBackground(Color.blue);
+        PhoneNumber.setBackground(Color.white);
+        PhoneNumber.setForeground(Color.black);
         // pin
         TPin.setBounds(170, 150, 200, 30);
         pin.setBounds(110, 150, 70, 30);
@@ -38,8 +47,18 @@ public class MyFrame extends JFrame {
         add(TPin);
         add(reEnter);
         add(reEnterPin);
+        pin.setBackground(Color.blue);
+        reEnter.setBackground(Color.blue);
+        reEnterPin.setBackground(Color.white);
+        reEnterPin.setForeground(Color.black);
+        TPin.setBackground(Color.white);
+        TPin.setForeground(Color.BLACK);
         // submit
         add(submit);
+        submit.setBackground(Color.BLUE);
+        submit.setForeground(Color.WHITE);
+        submit.setFocusPainted(false);
+        submit.setBorderPainted(false);
         JRootPane rp = this.getRootPane();
         rp.setDefaultButton(submit);
         submit.setBounds(175, 240, 80, 25);
@@ -78,7 +97,9 @@ public class MyFrame extends JFrame {
             TPin.setText(null);
         });
         clear.setBounds(280, 240, 70, 25);
+        
         // window operations
+        getContentPane().setBackground(Color.lightGray);
         setLayout(null);
         setSize(600, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
